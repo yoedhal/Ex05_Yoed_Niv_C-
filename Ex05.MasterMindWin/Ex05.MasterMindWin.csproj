@@ -45,6 +45,12 @@
     <Compile Include="ColorForm.Designer.cs">
       <DependentUpon>ColorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BoolPgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoolPgia.Designer.cs">
+      <DependentUpon>BoolPgia.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterMindLogic.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
@@ -58,6 +64,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ColorForm.resx">
       <DependentUpon>ColorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoolPgia.resx">
+      <DependentUpon>BoolPgia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,5 +8,6 @@ namespace Ex05.MasterMindWin
 {
     internal class Program
     {
+
     }
 }

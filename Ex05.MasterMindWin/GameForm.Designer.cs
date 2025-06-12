@@ -1,4 +1,7 @@
-﻿namespace Ex05.MasterMindWin
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Ex05.MasterMindWin
 {
     partial class GameForm
     {
@@ -26,74 +29,60 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(int i_NumOfGuesses)
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(255, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 74);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(174, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 74);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(93, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 74);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(12, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 74);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // GameForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 483);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "GameForm";
-            this.Text = "GameForm";
-            this.ResumeLayout(false);
+            this.ClientSize = new Size(500, 100 + i_NumOfGuesses * 50);
+            this.Text = "MasterMind";
 
+            // יצירת לוח המשחק הדינאמי
+            int yOffset = 20;
+
+            for (int row = 0; row < i_NumOfGuesses; row++)
+            {
+                // כפתורי ניחוש
+                for (int col = 0; col < m_CodeCount; col++)
+                {
+                    Button guessButton = new Button();
+                    guessButton.Size = new Size(40, 40);
+                    guessButton.Location = new Point(20 + col * 50, yOffset);
+                    guessButton.BackColor = Color.Black;
+                    guessButton.Click += guessButton_Click;
+                    guessButton.Tag = new Point(row, col); // נשמור את מיקום הכפתור
+
+                    this.Controls.Add(guessButton);
+                }
+
+                // כפתור חץ לאישור ניחוש
+                Button arrowButton = new Button();
+                arrowButton.Size = new Size(40, 40);
+                arrowButton.Location = new Point(230, yOffset);
+                arrowButton.Text = "-->";
+                arrowButton.Enabled = false;
+                arrowButton.Tag = row;
+                arrowButton.Click += arrowButton_Click;
+
+                this.Controls.Add(arrowButton);
+
+                // תוצאות (4 עיגולים קטנים מימין)
+                for (int i = 0; i < m_CodeCount; i++)
+                {
+                    Button resultDot = new Button();
+                    resultDot.Size = new Size(15, 15);
+                    resultDot.Location = new Point(290 + i * 20, yOffset + 12);
+                    resultDot.Enabled = false;
+                    resultDot.FlatStyle = FlatStyle.Flat;
+
+                    this.Controls.Add(resultDot);
+                }
+
+                yOffset += 50;
+            }
         }
 
-        #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+
+        #endregion
     }
 }

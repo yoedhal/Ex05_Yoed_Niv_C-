@@ -15,6 +15,7 @@ namespace Ex05.MasterMindWin
         private Color m_Color;
         private int m_CodeCount = 4;
         private int m_NumOfGuesses;
+        private NumOfGuessesForm bp = new NumOfGuessesForm();
         private List<Color> m_Colors = new List<Color>
         {
             Color.Purple,
@@ -35,9 +36,16 @@ namespace Ex05.MasterMindWin
             }
         }
 
-        public GameForm()
+        public GameForm(int i_NumberOfChances)
         {
-            InitializeComponent();
+            m_NumOfGuesses = i_NumberOfChances;
+            InitializeComponent(i_NumberOfChances);
+        }
+
+        private void guessButton_Click(object sender, EventArgs e)
+        {
+            ColorForm CF = new ColorForm();
+            CF.ShowDialog();
         }
 
     }

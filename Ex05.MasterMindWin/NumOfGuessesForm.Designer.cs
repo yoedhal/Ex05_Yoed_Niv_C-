@@ -1,6 +1,6 @@
 ﻿namespace Ex05.MasterMindWin
 {
-    partial class BoolPgia
+    partial class NumOfGuessesForm
     {
         /// <summary>
         /// Required designer variable.

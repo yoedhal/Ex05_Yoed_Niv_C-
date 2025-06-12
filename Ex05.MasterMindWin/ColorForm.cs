@@ -13,17 +13,24 @@ namespace Ex05.MasterMindWin
 {
     public partial class ColorForm : Form
     {
-        private Color m_color;
+        private Color m_Color;
         public ColorForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void color_button_Click(object sender, EventArgs e)
         {
-            m_color = (sender as Button).BackColor;
-
+            m_Color = (sender as Button).BackColor;
+            this.Close();
         }
 
+        public Color Color
+        {
+            get
+            {
+                return m_Color;
+            }
+        }
     }
 }

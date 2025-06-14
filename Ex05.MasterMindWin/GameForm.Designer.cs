@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Ex05.MasterMindWin
@@ -31,58 +32,106 @@ namespace Ex05.MasterMindWin
         /// </summary>
         private void InitializeComponent(int i_NumOfGuesses)
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new Size(500, 100 + i_NumOfGuesses * 50);
+            int formWidth = 300;
+            this.ClientSize = new Size(formWidth, 100 + i_NumOfGuesses * 60);
             this.Text = "MasterMind";
+            this.BackColor = Color.LightGray;
 
-            // יצירת לוח המשחק הדינאמי
-            int yOffset = 20;
+            m_GuessesButtons = new List<Button>();
+            m_ArrowButtons = new List<Button>();
+            m_ComperingButtons = new List<Button>();
+
+            int buttonSize = 40;
+            int spacing = 5;
+            int buttonsTotalWidth = 4 * buttonSize + 3 * spacing;
+            int startX = 10;
+
+            // 🔵 שורת קוד סודי
+            for (int i = 0; i < 4; i++)
+            {
+                Button secretButton = new Button();
+                secretButton.Size = new Size(buttonSize, buttonSize);
+                secretButton.Location = new Point(startX + i * (buttonSize + spacing), 10);
+                secretButton.BackColor = Color.Black;
+                secretButton.Enabled = false;
+                secretButton.Anchor = AnchorStyles.None;
+                m_SecretButtons.Add(secretButton);
+
+                this.Controls.Add(secretButton);
+            }
+
+            int baseY = 70;
 
             for (int row = 0; row < i_NumOfGuesses; row++)
             {
-                // כפתורי ניחוש
-                for (int col = 0; col < m_CodeCount; col++)
+                int currentY = baseY + (row * 60);
+
+                // 4 כפתורי ניחוש
+                for (int col = 0; col < 4; col++)
                 {
                     Button guessButton = new Button();
-                    guessButton.Size = new Size(40, 40);
-                    guessButton.Location = new Point(20 + col * 50, yOffset);
-                    guessButton.BackColor = Color.Black;
+                    guessButton.Size = new Size(buttonSize, buttonSize);
+                    guessButton.Location = new Point(startX + col * (buttonSize + spacing), currentY);
+                    guessButton.BackColor = SystemColors.ActiveBorder;
+                    guessButton.Enabled = row == 0;
+                    guessButton.Tag = col;
                     guessButton.Click += guessButton_Click;
-                    guessButton.Tag = new Point(row, col); // נשמור את מיקום הכפתור
+                    guessButton.Anchor = AnchorStyles.None;
+                    guessButton.Enabled = false;
 
                     this.Controls.Add(guessButton);
+                    m_GuessesButtons.Add(guessButton);
                 }
 
-                // כפתור חץ לאישור ניחוש
+                // כפתור חץ
                 Button arrowButton = new Button();
-                arrowButton.Size = new Size(40, 40);
-                arrowButton.Location = new Point(230, yOffset);
-                arrowButton.Text = "-->";
+                arrowButton.Size = new Size(50, 20);
+                arrowButton.Location = new Point(startX + 4 * (buttonSize + spacing) + 10, currentY + 10);
+                arrowButton.Text = "-->>";
                 arrowButton.Enabled = false;
                 arrowButton.Tag = row;
                 arrowButton.Click += arrowButton_Click;
+                arrowButton.Anchor = AnchorStyles.None;
+                arrowButton.Enabled = false;
 
                 this.Controls.Add(arrowButton);
+                m_ArrowButtons.Add(arrowButton);
 
-                // תוצאות (4 עיגולים קטנים מימין)
-                for (int i = 0; i < m_CodeCount; i++)
+                // כפתורי תוצאה (2x2)
+                for (int i = 0; i < 4; i++)
                 {
-                    Button resultDot = new Button();
-                    resultDot.Size = new Size(15, 15);
-                    resultDot.Location = new Point(290 + i * 20, yOffset + 12);
-                    resultDot.Enabled = false;
-                    resultDot.FlatStyle = FlatStyle.Flat;
+                    Button resultButton = new Button();
+                    resultButton.Size = new Size(14, 14);
+                    int dx = (i % 2) * 18;
+                    int dy = (i / 2) * 18;
+                    resultButton.Location = new Point(startX + 4 * (buttonSize + spacing) + 70 + dx, currentY + dy);
+                    resultButton.Enabled = false;
+                    resultButton.BackColor = SystemColors.ActiveBorder;
+                    resultButton.Anchor = AnchorStyles.None;
+                    resultButton.Enabled = false;
 
-                    this.Controls.Add(resultDot);
+                    this.Controls.Add(resultButton);
+                    m_ComperingButtons.Add(resultButton);
                 }
-
-                yOffset += 50;
             }
         }
 
 
 
         #endregion
+
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button10;
+        private Button button11;
+        private Button button12;
+        private Button button13;
     }
 }

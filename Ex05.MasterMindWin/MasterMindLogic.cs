@@ -16,21 +16,32 @@ namespace Ex05.MasterMindWin
         {
             r_RandomCode = CreatingCode(i_ListOfOptions, i_CodeCount);
             r_NumOfGuesses = i_NumOfGuess;
-            m_UserGuesses = new List<Guess<T>>(r_NumOfGuesses);
+            m_UserGuesses = new List<Guess<T>>();
+
+            for (int i = 0; i < r_NumOfGuesses; i++)
+            {
+                m_UserGuesses.Add(new Guess<T>(r_RandomCode.Count));
+            }
         }
 
-        public struct Guess<T>
+        public class Guess<T>
         {
             private List<T> m_UserGuess;
             private int m_BullCount;
             private int m_HitCount;
 
-            public Guess(List<T> i_UserGuess)
+            public Guess(int i_CodeLength)
             {
-                m_UserGuess = new List<T>(i_UserGuess);
+                m_UserGuess = new List<T>();
+                for (int i = 0; i < i_CodeLength; i++)
+                {
+                    m_UserGuess.Add(default(T));
+                }
+
                 m_BullCount = 0;
                 m_HitCount = 0;
             }
+
 
             public List<T> UserGuess
             {
@@ -82,15 +93,14 @@ namespace Ex05.MasterMindWin
             return code;
         }
 
-        public void CompareGuess(List<T> i_UserGuess)
+        public void CompareGuess(Guess<T> i_UserGuess)
         {
-            Guess<T> currentGuess = new Guess<T>(i_UserGuess);
 
             for (int i = 0; i < r_RandomCode.Count; i++)
             {
-                if (i_UserGuess[i].Equals(r_RandomCode[i]))
+                if (i_UserGuess.UserGuess[i].Equals(r_RandomCode[i]))
                 {
-                    currentGuess.BullCount++;
+                    i_UserGuess.BullCount++;
                 }
             }
 
@@ -98,15 +108,14 @@ namespace Ex05.MasterMindWin
             {
                 for (int j = 0; j < r_RandomCode.Count; j++)
                 {
-                    if (i_UserGuess[i].Equals(r_RandomCode[j]))
+                    if (i_UserGuess.UserGuess[i].Equals(r_RandomCode[j]))
                     {
-                        currentGuess.HitCount++;
+                        i_UserGuess.HitCount++;
                     }
                 }
             }
 
-            currentGuess.HitCount -= currentGuess.BullCount;
-            m_UserGuesses.Add(currentGuess);
+            i_UserGuess.HitCount -= i_UserGuess.BullCount;
         }
     }
 }

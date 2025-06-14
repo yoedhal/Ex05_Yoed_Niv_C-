@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Drawing;
 
 namespace Ex05.MasterMindWin
 {
@@ -44,7 +45,7 @@ namespace Ex05.MasterMindWin
             // PurpleButton
             // 
             this.PurpleButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PurpleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.PurpleButton.BackColor = Color.Purple;
             this.PurpleButton.Location = new System.Drawing.Point(5, 6);
             this.PurpleButton.Name = "PurpleButton";
             this.PurpleButton.Size = new System.Drawing.Size(80, 80);
@@ -55,7 +56,7 @@ namespace Ex05.MasterMindWin
             // YellowButton
             // 
             this.YellowButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.YellowButton.BackColor = System.Drawing.Color.Yellow;
+            this.YellowButton.BackColor = Color.Yellow;
             this.YellowButton.Location = new System.Drawing.Point(104, 102);
             this.YellowButton.Name = "YellowButton";
             this.YellowButton.Size = new System.Drawing.Size(80, 80);
@@ -66,7 +67,7 @@ namespace Ex05.MasterMindWin
             // BrownButton
             // 
             this.BrownButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BrownButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BrownButton.BackColor = Color.Brown;
             this.BrownButton.Location = new System.Drawing.Point(211, 102);
             this.BrownButton.Name = "BrownButton";
             this.BrownButton.Size = new System.Drawing.Size(80, 80);
@@ -77,7 +78,7 @@ namespace Ex05.MasterMindWin
             // GreenButton
             // 
             this.GreenButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GreenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.GreenButton.BackColor = Color.Green;
             this.GreenButton.Location = new System.Drawing.Point(211, 3);
             this.GreenButton.Name = "GreenButton";
             this.GreenButton.Size = new System.Drawing.Size(80, 80);
@@ -88,7 +89,7 @@ namespace Ex05.MasterMindWin
             // BlueButton
             // 
             this.BlueButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.BlueButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BlueButton.BackColor = Color.Blue;
             this.BlueButton.Location = new System.Drawing.Point(5, 102);
             this.BlueButton.Name = "BlueButton";
             this.BlueButton.Size = new System.Drawing.Size(80, 80);
@@ -99,7 +100,7 @@ namespace Ex05.MasterMindWin
             // WhiteButton
             // 
             this.WhiteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.WhiteButton.BackColor = System.Drawing.Color.White;
+            this.WhiteButton.BackColor = Color.White;
             this.WhiteButton.Location = new System.Drawing.Point(313, 102);
             this.WhiteButton.Name = "WhiteButton";
             this.WhiteButton.Size = new System.Drawing.Size(80, 80);
@@ -110,7 +111,7 @@ namespace Ex05.MasterMindWin
             // RedButton
             // 
             this.RedButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RedButton.BackColor = System.Drawing.Color.Red;
+            this.RedButton.BackColor = Color.Red;
             this.RedButton.Location = new System.Drawing.Point(104, 6);
             this.RedButton.Name = "RedButton";
             this.RedButton.Size = new System.Drawing.Size(80, 80);
@@ -121,7 +122,7 @@ namespace Ex05.MasterMindWin
             // LightBlueButton
             // 
             this.LightBlueButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LightBlueButton.BackColor = System.Drawing.Color.Cyan;
+            this.LightBlueButton.BackColor = Color.LightBlue;
             this.LightBlueButton.Location = new System.Drawing.Point(313, 6);
             this.LightBlueButton.Name = "LightBlueButton";
             this.LightBlueButton.Size = new System.Drawing.Size(80, 80);

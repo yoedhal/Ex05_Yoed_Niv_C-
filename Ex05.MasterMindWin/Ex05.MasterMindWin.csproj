@@ -45,11 +45,11 @@
     <Compile Include="ColorForm.Designer.cs">
       <DependentUpon>ColorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NumOfGuessesForm.cs">
+    <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NumOfGuessesForm.Designer.cs">
-      <DependentUpon>NumOfGuessesForm.cs</DependentUpon>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
@@ -74,8 +74,8 @@
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NumOfGuessesForm.resx">
-      <DependentUpon>NumOfGuessesForm.cs</DependentUpon>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

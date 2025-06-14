@@ -10,9 +10,8 @@ namespace Ex05.MasterMindWin
     {
         public static void Main()
         {
-            ColorForm form = new ColorForm();
-            form.ShowDialog();
-
+            StartForm StartForm = new StartForm();
+            StartForm.ShowDialog();
         }
     }
 }

@@ -37,10 +37,6 @@ namespace Ex05.MasterMindWin
             this.Text = "MasterMind";
             this.BackColor = Color.LightGray;
 
-            m_GuessesButtons = new List<Button>();
-            m_ArrowButtons = new List<Button>();
-            m_ComperingButtons = new List<Button>();
-
             int buttonSize = 40;
             int spacing = 5;
             int buttonsTotalWidth = 4 * buttonSize + 3 * spacing;
@@ -55,7 +51,7 @@ namespace Ex05.MasterMindWin
                 secretButton.BackColor = Color.Black;
                 secretButton.Enabled = false;
                 secretButton.Anchor = AnchorStyles.None;
-                m_SecretButtons.Add(secretButton);
+                r_SecretButtons.Add(secretButton);
 
                 this.Controls.Add(secretButton);
             }
@@ -80,7 +76,7 @@ namespace Ex05.MasterMindWin
                     guessButton.Enabled = false;
 
                     this.Controls.Add(guessButton);
-                    m_GuessesButtons.Add(guessButton);
+                    r_GuessesButtons.Add(guessButton);
                 }
 
                 // כפתור חץ
@@ -95,7 +91,7 @@ namespace Ex05.MasterMindWin
                 arrowButton.Enabled = false;
 
                 this.Controls.Add(arrowButton);
-                m_ArrowButtons.Add(arrowButton);
+                r_ArrowButtons.Add(arrowButton);
 
                 // כפתורי תוצאה (2x2)
                 for (int i = 0; i < 4; i++)
@@ -111,7 +107,7 @@ namespace Ex05.MasterMindWin
                     resultButton.Enabled = false;
 
                     this.Controls.Add(resultButton);
-                    m_ComperingButtons.Add(resultButton);
+                    r_ComperingButtons.Add(resultButton);
                 }
             }
         }
@@ -119,19 +115,5 @@ namespace Ex05.MasterMindWin
 
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button button13;
     }
 }

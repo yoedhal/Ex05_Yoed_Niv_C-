@@ -45,6 +45,12 @@
     <Compile Include="ColorForm.Designer.cs">
       <DependentUpon>ColorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultMessageForm.Designer.cs">
+      <DependentUpon>ResultMessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultMessageForm.resx">
+      <DependentUpon>ResultMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>

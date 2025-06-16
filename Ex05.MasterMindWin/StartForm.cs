@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace Ex05.MasterMindWin
 {
-    public partial class BoolPgia : Form
+    public partial class StartForm : Form
     {
+        private const int k_MinGuesses = 4;
+        private const int k_MaxGuesses = 10;
         private int m_NumberOfChances = 4;
-        public BoolPgia()
+        public StartForm()
         {
             InitializeComponent();
             buttonOfChances.Text = "Number of chances: " + m_NumberOfChances;
@@ -23,9 +25,9 @@ namespace Ex05.MasterMindWin
         {
             m_NumberOfChances++;
 
-            if(m_NumberOfChances == 11)
+            if(m_NumberOfChances > k_MaxGuesses)
             {
-                m_NumberOfChances = 4;
+                m_NumberOfChances = k_MinGuesses;
             }
 
             buttonOfChances.Text = "Number of chances: " + m_NumberOfChances;
@@ -34,7 +36,8 @@ namespace Ex05.MasterMindWin
         private void startButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            GameForm GF = new GameForm(m_NumberOfChances);
+            GF.ShowDialog();
         }
-
     }
 }

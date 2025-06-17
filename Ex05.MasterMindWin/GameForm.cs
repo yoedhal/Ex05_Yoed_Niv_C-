@@ -40,6 +40,7 @@ namespace Ex05.MasterMindWin
             m_GameLogic = new MasterMindLogic<Color>(r_ListOfOptions,k_CodeCount,r_NumOfGuesses);
 
             InitializeComponent(i_NumberOfChances);
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             for (int i = 0; i < k_CodeCount; i++)
             {

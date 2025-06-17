@@ -19,6 +19,8 @@ namespace Ex05.MasterMindWin
         {
             InitializeComponent();
             buttonOfChances.Text = "Number of chances: " + m_NumberOfChances;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void buttonOfChances_Click(object sender, EventArgs e)
@@ -35,9 +37,11 @@ namespace Ex05.MasterMindWin
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-            GameForm GF = new GameForm(m_NumberOfChances);
-            GF.ShowDialog();
+            GameForm gf = new GameForm(m_NumberOfChances);
+            this.Hide();  
+            gf.ShowDialog();
+            this.Close(); 
+
         }
     }
 }

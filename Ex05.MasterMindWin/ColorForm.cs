@@ -17,7 +17,22 @@ namespace Ex05.MasterMindWin
         public ColorForm()
         {
             InitializeComponent();
+            this.SetCustomLocation();
         }
+
+        private void SetCustomLocation()
+        {
+            this.StartPosition = FormStartPosition.Manual;
+
+            Rectangle screen = Screen.PrimaryScreen.WorkingArea;
+
+            int leftOffset = 100;
+
+            int centerY = (screen.Height - this.Height) / 2;
+
+            this.Location = new Point(screen.Left + leftOffset, centerY);
+        }
+
 
         private void color_button_Click(object sender, EventArgs e)
         {

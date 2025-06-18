@@ -13,7 +13,7 @@ namespace Ex05.MasterMindWin
     public partial class GameForm : Form
     {
         private MasterMindLogic<Color> m_GameLogic;
-        private const int k_CodeCount = 4;
+        private readonly int r_CodeCount;
         private readonly int r_NumOfGuesses;
         private int m_CurrentGuessIndex = 0;
         private int m_CurrentArrowButtonIndex = 0;
@@ -34,15 +34,16 @@ namespace Ex05.MasterMindWin
         };
         private readonly List<Button> r_SecretButtons = new List<Button>();
 
-        public GameForm(int i_NumberOfChances)
+        public GameForm(int i_NumberOfChances, int i_CodeCount)
         {
             r_NumOfGuesses = i_NumberOfChances;
-            m_GameLogic = new MasterMindLogic<Color>(r_ListOfOptions,k_CodeCount,r_NumOfGuesses);
+            r_CodeCount = i_CodeCount;
+            m_GameLogic = new MasterMindLogic<Color>(r_ListOfOptions,r_CodeCount ,r_NumOfGuesses);
 
             InitializeComponent(i_NumberOfChances);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            for (int i = 0; i < k_CodeCount; i++)
+            for (int i = 0; i < r_CodeCount; i++)
             {
                 r_GuessesButtons[i].Enabled = true;
             }
@@ -85,9 +86,9 @@ namespace Ex05.MasterMindWin
             (sender as Button).Enabled = false;
             m_GameLogic.CompareGuess(m_GameLogic.UserGuesses[m_CurrentGuessIndex]);
 
-            int copyOfCurrentGuessButtonIndex = m_CurrentGuessIndex * k_CodeCount;
+            int copyOfCurrentGuessButtonIndex = m_CurrentGuessIndex * r_CodeCount;
 
-            for (int i = 0; i < k_CodeCount; i++)
+            for (int i = 0; i < r_CodeCount; i++)
             {
                 r_GuessesButtons[copyOfCurrentGuessButtonIndex].Enabled = false;
                 copyOfCurrentGuessButtonIndex++;
@@ -99,7 +100,7 @@ namespace Ex05.MasterMindWin
                 m_CurrentComperingButtonIndex++;
             }
 
-            if (m_GameLogic.UserGuesses[m_CurrentGuessIndex].BullCount == k_CodeCount)
+            if (m_GameLogic.UserGuesses[m_CurrentGuessIndex].BullCount == r_CodeCount)
             {
                 int j = 0;
 
@@ -110,7 +111,7 @@ namespace Ex05.MasterMindWin
                 }
 
                 this.Close();
-                ResultMessageForm resultMessageForm = new ResultMessageForm("You won!", m_GameLogic.RandomCode);
+                ResultMessageForm resultMessageForm = new ResultMessageForm("You won!", m_GameLogic.RandomCode, r_CodeCount);
                 resultMessageForm.ShowDialog();
                 return;
             }
@@ -121,15 +122,15 @@ namespace Ex05.MasterMindWin
                 m_CurrentComperingButtonIndex++;
             }
 
-            m_CurrentComperingButtonIndex += k_CodeCount - m_GameLogic.UserGuesses[m_CurrentGuessIndex].BullCount - m_GameLogic.UserGuesses[m_CurrentGuessIndex].HitCount;
+            m_CurrentComperingButtonIndex += r_CodeCount - m_GameLogic.UserGuesses[m_CurrentGuessIndex].BullCount - m_GameLogic.UserGuesses[m_CurrentGuessIndex].HitCount;
 
             m_CurrentGuessIndex++;
 
             if (m_CurrentGuessIndex < r_NumOfGuesses)
             {
-                copyOfCurrentGuessButtonIndex = m_CurrentGuessIndex * k_CodeCount;
+                copyOfCurrentGuessButtonIndex = m_CurrentGuessIndex * r_CodeCount;
 
-                for (int i = 0; i < k_CodeCount; i++)
+                for (int i = 0; i < r_CodeCount; i++)
                 {
                     r_GuessesButtons[copyOfCurrentGuessButtonIndex].Enabled = true;
                     copyOfCurrentGuessButtonIndex++;
@@ -146,7 +147,7 @@ namespace Ex05.MasterMindWin
                 }
 
                 this.Close();
-                ResultMessageForm resultMessageForm = new ResultMessageForm("You lost!", m_GameLogic.RandomCode);
+                ResultMessageForm resultMessageForm = new ResultMessageForm("You lost!", m_GameLogic.RandomCode, r_CodeCount);
                 resultMessageForm.ShowDialog();
             }
 

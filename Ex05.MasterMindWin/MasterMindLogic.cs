@@ -10,6 +10,7 @@ namespace Ex05.MasterMindWin
     {
         private readonly List<T> r_RandomCode;
         private readonly int r_NumOfGuesses;
+        //private readonly int r_LengthOfRandomCode;
         private List<Guess<T>> m_UserGuesses;
 
         public MasterMindLogic(List<T> i_ListOfOptions, int i_CodeCount, int i_NumOfGuess)
@@ -17,6 +18,7 @@ namespace Ex05.MasterMindWin
             r_RandomCode = CreatingCode(i_ListOfOptions, i_CodeCount);
             r_NumOfGuesses = i_NumOfGuess;
             m_UserGuesses = new List<Guess<T>>();
+            //r_LengthOfRandomCode = i_LengthOfRandomCode;
 
             for (int i = 0; i < r_NumOfGuesses; i++)
             {

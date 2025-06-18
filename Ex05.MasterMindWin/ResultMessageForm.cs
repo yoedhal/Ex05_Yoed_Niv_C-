@@ -12,23 +12,21 @@ namespace Ex05.MasterMindWin
 {
     public partial class ResultMessageForm : Form
     {
-        private List<Button> m_buttons = new List<Button>(4);
+        private readonly int r_CodeCount;
+        private readonly List<Color> r_CodeColors;
+        private readonly string r_Message;
 
-        public ResultMessageForm(string i_message, List<Color> i_TheCodeList)
+        private TextBox messageTextBox;
+        private Button okButton;
+        private List<Button> colorButtons = new List<Button>();
+
+        public ResultMessageForm(string i_Message, List<Color> i_TheCodeList, int i_CodeCount)
         {
+            r_Message = i_Message;
+            r_CodeColors = i_TheCodeList;
+            r_CodeCount = i_CodeCount;
+
             InitializeComponent();
-
-            this.Text = "MasterMind Result";
-
-            textBox1.Text = i_message + Environment.NewLine + "The code was: ";
-
-            int i = 0;
-
-            foreach(Button button in m_buttons)
-            {
-                button.BackColor  = i_TheCodeList[i];
-                i++;
-            }
         }
 
         private void OKbutton_Click(object sender, EventArgs e)

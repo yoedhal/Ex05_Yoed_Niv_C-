@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9B58F943-3040-4C02-9CD3-1B0100A93195}</ProjectGuid>
+    <ProjectGuid>{11417998-5AF6-4761-A575-15C2E2FD98D3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Ex05.MasterMindWin</RootNamespace>
-    <AssemblyName>Ex05.MasterMindWin</AssemblyName>
+    <RootNamespace>GuessTheNumber</RootNamespace>
+    <AssemblyName>GuessTheNumber</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,17 +39,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorForm.cs">
+    <Reference Include="Ex02.ConsoleUtils">
+      <HintPath>..\..\..\..\Downloads\DN_2025B_Ex02\Ex02.ConsoleUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ColorForm.Designer.cs">
-      <DependentUpon>ColorForm.cs</DependentUpon>
+    <Compile Include="GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Instructions.cs">
+    <Compile Include="GuessTheNumberLogic.cs" />
+    <Compile Include="InstructionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Instructions.Designer.cs">
-      <DependentUpon>Instructions.cs</DependentUpon>
+    <Compile Include="InstructionsForm.Designer.cs">
+      <DependentUpon>InstructionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultMessageForm.cs">
       <SubType>Form</SubType>
@@ -64,30 +74,10 @@
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GameForm.Designer.cs">
-      <DependentUpon>GameForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MasterMindLogic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ColorForm.resx">
-      <DependentUpon>ColorForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Instructions.resx">
-      <DependentUpon>Instructions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResultMessageForm.resx">
       <DependentUpon>ResultMessageForm.cs</DependentUpon>

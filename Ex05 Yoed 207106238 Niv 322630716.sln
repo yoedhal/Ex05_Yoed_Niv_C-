@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex05.MasterMindWin", "Ex05.MasterMindWin\Ex05.MasterMindWin.csproj", "{9B58F943-3040-4C02-9CD3-1B0100A93195}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameHub", "GameHub\GameHub.csproj", "{7C81C600-7F99-492A-85FD-10CDD5223613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessTheNumber", "GuessTheNumber\GuessTheNumber.csproj", "{11417998-5AF6-4761-A575-15C2E2FD98D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9B58F943-3040-4C02-9CD3-1B0100A93195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B58F943-3040-4C02-9CD3-1B0100A93195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B58F943-3040-4C02-9CD3-1B0100A93195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C81C600-7F99-492A-85FD-10CDD5223613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C81C600-7F99-492A-85FD-10CDD5223613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C81C600-7F99-492A-85FD-10CDD5223613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C81C600-7F99-492A-85FD-10CDD5223613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11417998-5AF6-4761-A575-15C2E2FD98D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11417998-5AF6-4761-A575-15C2E2FD98D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11417998-5AF6-4761-A575-15C2E2FD98D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11417998-5AF6-4761-A575-15C2E2FD98D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

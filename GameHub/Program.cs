@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex05.MasterMindWin
+
+namespace GameHub
 {
-    internal class Program
+    internal  class Program
     {
         public static void Main()
         {
-            StartForm StartForm = new StartForm();
-            StartForm.ShowDialog();
+            GameHubForm formGameHub = new GameHubForm();
+            formGameHub.ShowDialog();
         }
+        
     }
 }
